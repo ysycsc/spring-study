@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <bean id="dao" name="dao2" class="com.yy.dao.dao">
+<!--        <constructor-arg index="0" value="第一种方法：index参数下标设置"/>-->
+<!--        <constructor-arg name="str" value="第二种方法：通过参数的名字"/>-->
+<!--        <constructor-arg type="java.lang.String" value="深圳"/>-->
+        <property name="str" value="深圳"/>
+    </bean>
+    <bean id="cp" class="com.yy.dao.CP" c:name="小娃儿" c:age="18"/>
+    <bean id="student" class="com.yy.dao.Student">
+        <property name="name" value="小明"/>
+        <property name="address" ref="dao"/>
+        <property name="books">
+            <array>
+                <value>水浒传</value>
+                <value>西游记</value>
+                <value>红楼梦</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>篮球</value>
+                <value>乒乓球</value>
+                <value>羽毛球</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="邮政" value="786243948173546283657"/>
+                <entry key="建行" value="785467283264778482347"/>
+            </map>
+        </property>
+        <property name="wife"><null/></property>
+        <property name="info">
+            <props>
+                <prop key="学号">687687</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">小明</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="cat" class="com.yy.dao.Cat"/>
+    <bean id="dog" class="com.yy.dao.Dog"/>
+
+    <bean id="user" class="com.yy.dao.User">
+        <property name="str" value="yyk"/>
+    </bean>
+
+</beans>
